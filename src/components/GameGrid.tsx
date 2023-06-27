@@ -11,14 +11,13 @@ export default function GameGrid() {
     <>
       {error && <Text>{error}</Text>}
       <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
-        padding={10}
-        spacing={10}
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4, "2xl": 5 }}
+        spacing={4}
       >
         {isLoading &&
-          [...Array(6).keys()].map((x) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={x} />
+          [...Array(16).keys()].map((x) => (
+            <GameCardContainer key={x}>
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {games.map((game) => (
