@@ -9,7 +9,7 @@ export default function GameGrid() {
 
   return (
     <>
-      {error && <Text>{error}</Text>}
+      {error && <Text color="red">{error}</Text>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4, "2xl": 5 }}
         spacing={4}
