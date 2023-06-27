@@ -31,14 +31,12 @@ const ICON_MAP: { [key: string]: IconType } = {
   web: BsGlobe,
 };
 
-const PlatformIconList = (props: Props) => {
+export default function PlatformIconList(props: Props) {
   return (
     <HStack marginY={2}>
-      {props.platforms.map((platform, index) => (
-        <Icon key={index} as={ICON_MAP[platform.slug]} color="gray.500" />
+      {props.platforms.map((platform) => (
+        <Icon key={platform.id} as={ICON_MAP[platform.slug]} color="gray.500" />
       ))}
     </HStack>
   );
-};
-
-export default PlatformIconList;
+}

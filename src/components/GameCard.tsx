@@ -15,13 +15,11 @@ interface Props {
   game: Game;
 }
 
-const GameCard = (props: Props) => {
+export default function GameCard(props: Props) {
   return (
     <GameCardContainer>
       <Card>
-        <Image
-          src={getCropppedImageURL(props.game.background_image, 600, 400)}
-        />
+        <Image src={getCropppedImageURL(props.game.background_image)} />
         <CardBody>
           <Heading fontSize="2xl">{props.game.name}</Heading>
           <HStack justifyContent="space-between">
@@ -46,6 +44,4 @@ const GameCard = (props: Props) => {
       </Card>
     </GameCardContainer>
   );
-};
-
-export default GameCard;
+}

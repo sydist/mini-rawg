@@ -1,12 +1,8 @@
-export default function getCropppedImageURL(
-  url: string,
-  width: number,
-  height: number
-): string {
+export default function getCropppedImageURL(url: string) {
   const target = "media/";
   const index = url.indexOf(target) + target.length;
   const output =
-    url.substring(0, index) + `crop/${width}/${height}/` + url.substring(index);
+    url.substring(0, index) + `crop/600/400/` + url.substring(index);
 
   return output;
 }

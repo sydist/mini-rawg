@@ -3,17 +3,17 @@ import useGenres from "../hooks/useGenres";
 import getCropppedImageURL from "../services/image-url";
 
 export default function GenreList() {
-  const { genres } = useGenres();
+  const { data } = useGenres();
   return (
     <List spacing={4}>
-      {genres.map((genre) => {
+      {data.map((genre) => {
         return (
           <ListItem key={genre.id}>
             <HStack>
               <Image
                 boxSize={12}
                 borderRadius={8}
-                src={getCropppedImageURL(genre.image_background, 600, 400)}
+                src={getCropppedImageURL(genre.image_background)}
               />
               <Text fontSize="lg">{genre.name}</Text>
             </HStack>
