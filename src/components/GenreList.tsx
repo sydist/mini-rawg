@@ -10,9 +10,11 @@ interface Props {
 
 export default function GenreList(props: Props) {
   const { data, error, isLoading } = useGenres();
+
+  if (error) return null;
+
   return (
     <List spacing={3}>
-      {error && <Text color="red">{error}</Text>}
       {isLoading &&
         [...Array(16).keys()].map((x) => <GenreListItemSkeleton key={x} />)}
       {data.map((genre) => {
