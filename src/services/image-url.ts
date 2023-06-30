@@ -1,5 +1,7 @@
+import imageNotFound from "../assets/image-not-found.webp";
+
 export default function getCropppedImageURL(url: string) {
-  if (!url) return "";
+  if (!url) return imageNotFound;
 
   const target = "media/";
   const index = url.indexOf(target) + target.length;
