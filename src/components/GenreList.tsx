@@ -1,4 +1,11 @@
-import { Button, HStack, Image, List, ListItem } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Heading,
+  Image,
+  List,
+  ListItem,
+} from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCropppedImageURL from "../services/image-url";
 import GenreListItemSkeleton from "./GenreListItemSkeleton";
@@ -14,30 +21,38 @@ export default function GenreList(props: Props) {
   if (error) return null;
 
   return (
-    <List spacing={3}>
-      {isLoading &&
-        [...Array(16).keys()].map((x) => <GenreListItemSkeleton key={x} />)}
-      {data.map((genre) => {
-        return (
-          <ListItem key={genre.id}>
-            <HStack spacing={2}>
-              <Image
-                boxSize={8}
-                borderRadius={8}
-                src={getCropppedImageURL(genre.image_background)}
-              />
-              <Button
-                onClick={() => props.onSelectGenre(genre)}
-                fontSize="lg"
-                variant="link"
-                fontWeight={props.selectedGenre?.id === genre.id ? 700 : 400}
-              >
-                {genre.name}
-              </Button>
-            </HStack>
-          </ListItem>
-        );
-      })}
-    </List>
+    <>
+      <Heading fontSize="2xl" marginBottom={4}>
+        Genres
+      </Heading>
+      <List spacing={3}>
+        {isLoading &&
+          [...Array(16).keys()].map((x) => <GenreListItemSkeleton key={x} />)}
+        {data.map((genre) => {
+          return (
+            <ListItem key={genre.id}>
+              <HStack spacing={2}>
+                <Image
+                  boxSize={8}
+                  borderRadius={8}
+                  objectFit="cover"
+                  src={getCropppedImageURL(genre.image_background)}
+                />
+                <Button
+                  onClick={() => props.onSelectGenre(genre)}
+                  fontSize="lg"
+                  variant="link"
+                  fontWeight={props.selectedGenre?.id === genre.id ? 700 : 400}
+                  whiteSpace="normal"
+                  textAlign="left"
+                >
+                  {genre.name}
+                </Button>
+              </HStack>
+            </ListItem>
+          );
+        })}
+      </List>
+    </>
   );
 }
