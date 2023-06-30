@@ -22,7 +22,7 @@ export default function GenreList(props: Props) {
 
   return (
     <>
-      <Heading fontSize="2xl" marginBottom={4}>
+      <Heading fontSize="2xl" marginBottom={6}>
         Genres
       </Heading>
       <List spacing={3}>
