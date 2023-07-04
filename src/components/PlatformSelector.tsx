@@ -18,7 +18,7 @@ export default function PlatformList(props: Props) {
         {props.selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {data.map((platform) => (
+        {data?.map((platform) => (
           <MenuItem
             key={platform.id}
             onClick={() => props.onSelectPlatform(platform)}

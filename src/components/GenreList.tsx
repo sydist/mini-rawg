@@ -28,7 +28,7 @@ export default function GenreList(props: Props) {
       <List spacing={3}>
         {isLoading &&
           [...Array(16).keys()].map((x) => <GenreListItemSkeleton key={x} />)}
-        {data.map((genre) => {
+        {data?.map((genre) => {
           return (
             <ListItem key={genre.id}>
               <HStack spacing={2}>
