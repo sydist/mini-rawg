@@ -12,7 +12,7 @@ interface Props {
 export default function GameGrid(props: Props) {
   const { data, error, isLoading } = useGames(props.gameQuery);
 
-  if (error) return <Text color="red">{error}</Text>;
+  if (error) return <Text color="red">{error.message}</Text>;
 
   return (
     <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4, "2xl": 6 }} spacing={6}>
@@ -22,7 +22,7 @@ export default function GameGrid(props: Props) {
             <GameCardSkeleton />
           </GameCardContainer>
         ))}
-      {data.map((game) => (
+      {data?.map((game) => (
         <GameCardContainer key={game.id}>
           <GameCard game={game} />
         </GameCardContainer>
