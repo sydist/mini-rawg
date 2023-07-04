@@ -13,7 +13,7 @@ import genres from "../data/genres";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
 export default function GenreList(props: Props) {
@@ -45,7 +45,7 @@ export default function GenreList(props: Props) {
                   onClick={() => props.onSelectGenre(genre)}
                   fontSize="lg"
                   variant="link"
-                  fontWeight={props.selectedGenre?.id === genre.id ? 700 : 400}
+                  fontWeight={props.selectedGenreId === genre.id ? 700 : 400}
                   whiteSpace="normal"
                   textAlign="left"
                 >
