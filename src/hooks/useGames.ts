@@ -13,7 +13,7 @@ export interface Game {
 }
 
 const apiClient = new APIClient<Game>("/games");
-const PAGE_SIZE = 20;
+export const PAGE_SIZE = 24;
 
 export default (gameQuery: GameQuery) =>
   useInfiniteQuery<Game[], Error>({
@@ -30,7 +30,7 @@ export default (gameQuery: GameQuery) =>
         },
       }),
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length === 20 ? allPages.length + 1 : undefined;
+      return lastPage.length === PAGE_SIZE ? allPages.length + 1 : undefined;
     },
     staleTime: 60 * 60 * 1000,
   });
