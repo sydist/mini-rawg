@@ -9,6 +9,7 @@ import {
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCropppedImageURL from "../services/image-url";
 import GenreListItemSkeleton from "./GenreListItemSkeleton";
+import genres from "../data/genres";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
@@ -27,7 +28,9 @@ export default function GenreList(props: Props) {
       </Heading>
       <List spacing={3}>
         {isLoading &&
-          [...Array(16).keys()].map((x) => <GenreListItemSkeleton key={x} />)}
+          [...Array(genres.length).keys()].map((x) => (
+            <GenreListItemSkeleton key={x} />
+          ))}
         {data?.map((genre) => {
           return (
             <ListItem key={genre.id}>
