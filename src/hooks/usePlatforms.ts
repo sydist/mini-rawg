@@ -14,6 +14,6 @@ export default () =>
   useQuery<Platform[], Error>({
     queryKey: ["platforms"],
     queryFn: () => apiClient.getAll(),
-    staleTime: 24 * 60 * 60 * 1000,
+    staleTime: Infinity,
     initialData: parent_platforms,
   });
