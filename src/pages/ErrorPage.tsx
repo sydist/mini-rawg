@@ -10,10 +10,10 @@ function ErrorPage() {
 
   return (
     <>
-      <Box padding={4}>
+      <Box padding={6}>
         <NavBar />
       </Box>
-      <Box padding={4}>
+      <Box padding={6}>
         <Heading marginBottom={1}>Oops!</Heading>
         <Text>{message}</Text>
       </Box>

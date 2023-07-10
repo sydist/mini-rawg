@@ -1,13 +1,17 @@
 import NavBar from "../components/NavBar";
 import { Outlet } from "react-router-dom";
-import { VStack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 function Layout() {
   return (
-    <VStack align={"start"} spacing={8} padding={4}>
-      <NavBar />
-      <Outlet />
-    </VStack>
+    <>
+      <Box p={6}>
+        <NavBar />
+      </Box>
+      <Box p={6}>
+        <Outlet />
+      </Box>
+    </>
   );
 }
 
