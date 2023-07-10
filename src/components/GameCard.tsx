@@ -6,9 +6,9 @@ import {
   Heading,
   Image,
 } from "@chakra-ui/react";
-import { Game } from "../hooks/useGames";
+import { Game } from "../interfaces/Game";
 import PlatformIconList from "./PlatformIconList";
-import getCropppedImageURL from "../services/image-url";
+import getCropppedImageURL from "../services/getCroppedImageURL";
 import Emoji from "./Emoji";
 import { Link } from "react-router-dom";
 

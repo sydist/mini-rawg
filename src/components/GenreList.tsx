@@ -7,10 +7,10 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
-import getCropppedImageURL from "../services/image-url";
+import getCropppedImageURL from "../services/getCroppedImageURL";
 import GenreListItemSkeleton from "./GenreListItemSkeleton";
 import genres from "../data/genres";
-import useGameQueryStore from "../store";
+import useGameQueryStore from "../hooks/useGameQueryStore";
 
 export default function GenreList() {
   const { data, error, isLoading } = useGenres();
