@@ -19,4 +19,9 @@ export default class APIClient<T> {
     const res = await apiClient.get<Response<T>>(this.endpoint, config);
     return res.data.results;
   }
+
+  async get(id: number | string) {
+    const res = await apiClient.get<T>(this.endpoint + "/" + id);
+    return res.data;
+  }
 }

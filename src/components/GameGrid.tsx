@@ -20,6 +20,7 @@ export default function GameGrid() {
       hasMore={!!hasNextPage}
       next={() => fetchNextPage()}
       loader={<></>}
+      style={{ overflow: "visible" }}
     >
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4, "2xl": 6 }}

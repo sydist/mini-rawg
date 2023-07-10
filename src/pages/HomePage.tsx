@@ -18,11 +18,11 @@ function HomePage() {
       }}
     >
       <Show above="lg">
-        <GridItem area="aside" padding={4}>
+        <GridItem area="aside">
           <GenreList />
         </GridItem>
       </Show>
-      <GridItem area="main" padding={4}>
+      <GridItem area="main">
         <GameHeading />
         <HStack marginBottom={5} spacing={5}>
           <PlatformList />

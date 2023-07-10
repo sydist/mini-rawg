@@ -4,12 +4,14 @@ import { Platform } from "./usePlatforms";
 import useGameQueryStore from "../store";
 
 export interface Game {
-  id: number;
-  name: string;
   background_image: string;
-  parent_platforms: { platform: Platform }[];
+  description_raw: string;
+  id: number;
   metacritic: number;
+  name: string;
+  parent_platforms: { platform: Platform }[];
   rating_top: number;
+  slug: string;
 }
 
 const apiClient = new APIClient<Game>("/games");

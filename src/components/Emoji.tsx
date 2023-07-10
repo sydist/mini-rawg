@@ -9,8 +9,6 @@ interface Props {
 }
 
 export default function Emoji(props: Props) {
-  console.log(props.rating);
-
   const emojiMap: { [key: number]: ImageProps } = {
     5: { src: bullsEye, alt: "Exceptional", title: "Exceptional", boxSize: 7 },
     4: { src: thumbsUp, alt: "Recommended", title: "Recommended", boxSize: 6 },

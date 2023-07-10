@@ -9,8 +9,8 @@ import {
 import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import getCropppedImageURL from "../services/image-url";
-import GameCardContainer from "./GameCardContainer";
 import Emoji from "./Emoji";
+import { Link } from "react-router-dom";
 
 interface Props {
   game: Game;
@@ -18,7 +18,7 @@ interface Props {
 
 export default function GameCard(props: Props) {
   return (
-    <GameCardContainer>
+    <Link to={"/games/" + props.game.slug} aria-label={props.game.name}>
       <Card>
         <Image src={getCropppedImageURL(props.game.background_image)} />
         <CardBody>
@@ -41,10 +41,11 @@ export default function GameCard(props: Props) {
             </Badge>
           </HStack>
           <Heading fontSize="2xl">
-            {props.game.name} <Emoji rating={props.game.rating_top} />
+            {props.game.name}
+            <Emoji rating={props.game.rating_top} />
           </Heading>
         </CardBody>
       </Card>
-    </GameCardContainer>
+    </Link>
   );
 }

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <HStack spacing={4}>
+    <HStack w="100%" spacing={4}>
       <Box w="100%">
         <Link to="/">
           <Image
