@@ -8,6 +8,7 @@ export default function ColorModeSwitch() {
       colorScheme="green"
       isChecked={colorMode === "dark"}
       onChange={toggleColorMode}
+      whiteSpace={"nowrap"}
     >
       Dark Mode
     </Switch>
