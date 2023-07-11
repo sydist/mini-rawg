@@ -14,7 +14,7 @@ function GameDetailsPage() {
 
   if (isLoading) return <Spinner />;
 
-  if (error || !game) throw error;
+  if (error || !game) return null;
 
   const description = game.description_raw.slice(
     0,
@@ -51,7 +51,7 @@ function GameDetailsPage() {
           {publishers && <DetailsList title="Publishers" items={publishers} />}
         </GridItem>
       </Grid>
-      <GameTrailer gameId={game.id} />
+      <GameTrailer gameSlug={game.slug} />
     </>
   );
 }

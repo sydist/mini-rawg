@@ -1,21 +1,18 @@
 import useTrailers from "../hooks/useTrailers";
 
 interface Props {
-  gameId: number;
+  gameSlug: string;
 }
 
-function GameTrailer({ gameId }: Props) {
-  const { data, error, isLoading } = useTrailers(gameId);
+function GameTrailer({ gameSlug }: Props) {
+  const { data, error, isLoading } = useTrailers(gameSlug);
 
-  if (error || !data || isLoading) return null;
+  if (error || !data || !data[0] || isLoading) return null;
 
-  console.log(data);
-
-  const videoData = data[0];
   return (
     <video
-      src={videoData.data[480].toString()}
-      poster={videoData.preview}
+      src={data[0].data[480]}
+      poster={data[0].preview}
       controls
       width={480}
       autoPlay

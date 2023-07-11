@@ -24,16 +24,12 @@ export default function GameCard(props: Props) {
       as={RouterLink}
       to={"/games/" + props.game.slug}
       aria-label={props.game.name}
-      _focusVisible={{
-        textDecoration: "none",
-        transform: "scale(1.05)",
-        outline: "2px solid teal",
-      }}
-      _hover={{
-        textDecoration: "none",
-        transform: "scale(1.05)",
-      }}
+      textDecoration="none"
+      borderRadius={6}
+      outlineOffset={4}
       transition="transform 300ms ease"
+      _focusVisible={{ transform: "scale(1.04)" }}
+      _hover={{ transform: "scale(1.04)" }}
     >
       <GameCardContainer>
         <Card>
