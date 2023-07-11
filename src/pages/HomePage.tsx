@@ -1,9 +1,9 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
-import GenreList from "../components/GenreList";
-import PlatformList from "../components/PlatformSelector";
-import SortSelector from "../components/SortSelector";
-import GameHeading from "../components/GameHeading";
+import { Grid, GridItem, HStack, Heading, Show } from "@chakra-ui/react";
 import GameGrid from "../components/GameGrid";
+import GameHeading from "../components/GameHeading";
+import GenreList from "../components/GenreList";
+import PlatformSelector from "../components/PlatformSelector";
+import SortSelector from "../components/SortSelector";
 
 function HomePage() {
   return (
@@ -14,18 +14,21 @@ function HomePage() {
       }}
       templateColumns={{
         base: "1fr",
-        lg: "220px 1fr",
+        lg: "180px 1fr",
       }}
     >
       <Show above="lg">
-        <GridItem area="aside">
+        <GridItem as="aside" area="aside">
+          <Heading fontSize="2xl" marginBottom={6}>
+            Genres
+          </Heading>
           <GenreList />
         </GridItem>
       </Show>
-      <GridItem area="main">
+      <GridItem as="main" area="main">
         <GameHeading />
         <HStack marginBottom={5} spacing={5}>
-          <PlatformList />
+          <PlatformSelector />
           <SortSelector />
         </HStack>
         <GameGrid />

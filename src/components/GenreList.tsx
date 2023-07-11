@@ -1,11 +1,4 @@
-import {
-  Button,
-  HStack,
-  Heading,
-  Image,
-  List,
-  ListItem,
-} from "@chakra-ui/react";
+import { Button, HStack, Image, List, ListItem } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import getCropppedImageURL from "../services/getCroppedImageURL";
 import GenreListItemSkeleton from "./GenreListItemSkeleton";
@@ -22,40 +15,38 @@ export default function GenreList() {
   if (error) return null;
 
   return (
-    <>
-      <Heading fontSize="2xl" marginBottom={6}>
-        Genres
-      </Heading>
-      <List spacing={3}>
-        {isLoading &&
-          [...Array(genres.length).keys()].map((x) => (
-            <GenreListItemSkeleton key={x} />
-          ))}
-        {data?.map((genre) => {
-          return (
-            <ListItem key={genre.id}>
-              <HStack spacing={2}>
-                <Image
-                  boxSize={8}
-                  borderRadius={8}
-                  objectFit="cover"
-                  src={getCropppedImageURL(genre.image_background)}
-                />
-                <Button
-                  onClick={() => setSelectedGenreId(genre.id)}
-                  fontSize="lg"
-                  variant="link"
-                  fontWeight={selectedGenreId === genre.id ? 700 : 400}
-                  whiteSpace="normal"
-                  textAlign="left"
-                >
-                  {genre.name}
-                </Button>
-              </HStack>
-            </ListItem>
-          );
-        })}
-      </List>
-    </>
+    <List spacing={3} aria-label="Genres">
+      {isLoading &&
+        [...Array(genres.length).keys()].map((x) => (
+          <GenreListItemSkeleton key={x} />
+        ))}
+      {data?.map((genre) => {
+        return (
+          <ListItem key={genre.id}>
+            <HStack spacing={2}>
+              <Image
+                htmlWidth={1}
+                htmlHeight={1}
+                boxSize={8}
+                borderRadius={8}
+                objectFit="cover"
+                src={getCropppedImageURL(genre.image_background)}
+                alt={""}
+              />
+              <Button
+                onClick={() => setSelectedGenreId(genre.id)}
+                fontSize="lg"
+                variant="link"
+                fontWeight={selectedGenreId === genre.id ? 700 : 400}
+                whiteSpace="normal"
+                textAlign="left"
+              >
+                {genre.name}
+              </Button>
+            </HStack>
+          </ListItem>
+        );
+      })}
+    </List>
   );
 }

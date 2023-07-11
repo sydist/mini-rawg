@@ -1,25 +1,17 @@
-import { Box, HStack, Image } from "@chakra-ui/react";
+import { HStack, Image, Link, Spacer } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <HStack w="100%" spacing={4}>
-      <Box w="100%">
-        <Link to="/">
-          <Image
-            src={logo}
-            boxSize={10}
-            alt="Mini-Rawg Logo"
-            marginRight="auto"
-          />
-        </Link>
-      </Box>
-      <Box w="100%" maxWidth={320}>
-        <SearchInput />
-      </Box>
+    <HStack as="nav" spacing={6}>
+      <Link as={RouterLink} to="/">
+        <Image src={logo} boxSize={10} alt="Mini Rawg " />
+      </Link>
+      <Spacer />
+      <SearchInput />
       <ColorModeSwitch />
     </HStack>
   );

@@ -16,5 +16,12 @@ export default function Emoji(props: Props) {
     2: { src: skip, alt: "Skip", title: "Skip", boxSize: 6 },
     1: { src: skip, alt: "Skip", title: "Skip", boxSize: 6 },
   };
-  return <Image {...emojiMap[props.rating]} marginTop={1} />;
+  return (
+    <Image
+      htmlWidth={1}
+      htmlHeight={1}
+      {...emojiMap[props.rating]}
+      marginTop={1}
+    />
+  );
 }
