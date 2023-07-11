@@ -1,4 +1,4 @@
-import { HStack, Image, Link, Spacer } from "@chakra-ui/react";
+import { Box, HStack, Image, Link, Spacer } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
@@ -11,7 +11,9 @@ export default function NavBar() {
         <Image src={logo} boxSize={10} alt="Mini Rawg" />
       </Link>
       <Spacer />
-      <SearchInput />
+      <Box maxWidth={350} w={"100%"}>
+        <SearchInput />
+      </Box>
       <ColorModeSwitch />
     </HStack>
   );
