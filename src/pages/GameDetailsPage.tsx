@@ -2,6 +2,7 @@ import { Grid, GridItem, Heading, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import DetailsList from "../components/DetailsList";
 import ExpandableText from "../components/ExpandableText";
+import GameTrailer from "../components/GameTrailer";
 import ScoreBadge from "../components/ScoreBadge";
 import useGame from "../hooks/useGame";
 
@@ -28,9 +29,9 @@ function GameDetailsPage() {
       <Heading as="h1">{game.name}</Heading>
       <ExpandableText>{description}</ExpandableText>
       <Grid
-        marginTop={16}
+        marginY={8}
         templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
-        gap={8}
+        gap={6}
       >
         <GridItem>
           {platforms && <DetailsList title="Platforms" items={platforms} />}
@@ -50,6 +51,7 @@ function GameDetailsPage() {
           {publishers && <DetailsList title="Publishers" items={publishers} />}
         </GridItem>
       </Grid>
+      <GameTrailer gameId={game.id} />
     </>
   );
 }
