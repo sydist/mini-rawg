@@ -10,7 +10,7 @@ const LIMIT = 250;
 function ExpandableText({ children }: Props) {
   const [expanded, setExpanded] = useState(false);
 
-  if (children) return null;
+  if (!children) return null;
 
   if (children.length <= LIMIT) return <Text>{children}</Text>;
 

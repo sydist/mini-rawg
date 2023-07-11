@@ -1,7 +1,9 @@
-import { Heading, Spinner } from "@chakra-ui/react";
+import { Grid, GridItem, Heading, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import useGame from "../hooks/useGame";
+import DetailsList from "../components/DetailsList";
 import ExpandableText from "../components/ExpandableText";
+import ScoreBadge from "../components/ScoreBadge";
+import useGame from "../hooks/useGame";
 
 function GameDetailsPage() {
   const { slug } = useParams();
@@ -17,11 +19,37 @@ function GameDetailsPage() {
     0,
     game.description_raw.indexOf("Español")
   );
+  const platforms = game.parent_platforms.map(({ platform }) => platform.name);
+  const genres = game.genres.map((genre) => genre.name);
+  const publishers = game.publishers?.map((publisher) => publisher.name);
 
   return (
     <>
-      <Heading>{game.name}</Heading>
+      <Heading as="h1">{game.name}</Heading>
       <ExpandableText>{description}</ExpandableText>
+      <Grid
+        marginTop={16}
+        templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+        gap={8}
+      >
+        <GridItem>
+          {platforms && <DetailsList title="Platforms" items={platforms} />}
+        </GridItem>
+        <GridItem>
+          {game.metacritic && (
+            <DetailsList
+              title="Metascore"
+              items={[<ScoreBadge score={game.metacritic} />]}
+            />
+          )}
+        </GridItem>
+        <GridItem>
+          {genres && <DetailsList title="Genres" items={genres} />}
+        </GridItem>
+        <GridItem>
+          {publishers && <DetailsList title="Publishers" items={publishers} />}
+        </GridItem>
+      </Grid>
     </>
   );
 }
