@@ -1,5 +1,5 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
-import { Game } from "../interfaces/Game";
+import Game from "../interfaces/Game";
 import DetailsList from "./DetailsList";
 import ScoreBadge from "./ScoreBadge";
 

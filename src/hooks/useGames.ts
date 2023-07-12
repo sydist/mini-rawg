@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import APIClient from "../services/APIClient";
 import useGameQueryStore from "./useGameQueryStore";
-import { Game } from "../interfaces/Game";
+import Game from "../interfaces/Game";
 
 const apiClient = new APIClient<Game>("/games");
 export const PAGE_SIZE = 24;

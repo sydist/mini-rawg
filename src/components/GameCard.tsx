@@ -7,7 +7,7 @@ import {
   Image,
   Link,
 } from "@chakra-ui/react";
-import { Game } from "../interfaces/Game";
+import Game from "../interfaces/Game";
 import PlatformIconList from "./PlatformIconList";
 import getCropppedImageURL from "../services/getCroppedImageURL";
 import Emoji from "./Emoji";
