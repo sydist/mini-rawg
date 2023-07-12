@@ -1,9 +1,8 @@
-import { Grid, GridItem, Heading, Spinner } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import DetailsList from "../components/DetailsList";
 import ExpandableText from "../components/ExpandableText";
-import GameTrailer from "../components/GameTrailer";
-import ScoreBadge from "../components/ScoreBadge";
+import GameAttributes from "../components/GameAttributes";
+import GameScreenshots from "../components/GameScreenshots";
 import useGame from "../hooks/useGame";
 
 function GameDetailsPage() {
@@ -20,39 +19,24 @@ function GameDetailsPage() {
     0,
     game.description_raw.indexOf("Español")
   );
-  const platforms = game.parent_platforms.map(({ platform }) => platform.name);
-  const genres = game.genres.map((genre) => genre.name);
-  const publishers = game.publishers?.map((publisher) => publisher.name);
 
   return (
-    <>
-      <Heading as="h1">{game.name}</Heading>
-      <ExpandableText>{description}</ExpandableText>
-      <Grid
-        marginY={8}
-        templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
-        gap={6}
-      >
-        <GridItem>
-          {platforms && <DetailsList title="Platforms" items={platforms} />}
-        </GridItem>
-        <GridItem>
-          {game.metacritic && (
-            <DetailsList
-              title="Metascore"
-              items={[<ScoreBadge score={game.metacritic} />]}
-            />
-          )}
-        </GridItem>
-        <GridItem>
-          {genres && <DetailsList title="Genres" items={genres} />}
-        </GridItem>
-        <GridItem>
-          {publishers && <DetailsList title="Publishers" items={publishers} />}
-        </GridItem>
-      </Grid>
-      <GameTrailer gameSlug={game.slug} />
-    </>
+    <SimpleGrid columns={{ base: 1, lg: 2 }} gap={16} alignItems={"start"}>
+      <Box>
+        <Heading as="h1" fontSize="5xl" marginBottom={2}>
+          {game.name}
+        </Heading>
+        <Box maxWidth={"80ch"}>
+          <ExpandableText>{description}</ExpandableText>
+        </Box>
+        <Box marginTop={16}>
+          <GameAttributes game={game} />
+        </Box>
+      </Box>
+      <Box justifySelf={"center"} alignSelf={"center"}>
+        <GameScreenshots gameId={game.id} />
+      </Box>
+    </SimpleGrid>
   );
 }
 
